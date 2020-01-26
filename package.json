@@ -1,0 +1,34 @@
+{
+  "name": "cf-worker-logs",
+  "version": "1.0.0",
+  "description": "CF Worker that logs all HTTP requests to ElasticSearch",
+  "main": "src/main.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "lint:tslint": "tslint --project tsconfig.json",
+    "preview": "wrangler preview --env staging",
+    "build": "webpack --progress --mode production # Create minified output, runs in Cloudflare",
+    "build-dev": "webpack --progress --mode none # Creates readable output, runs in Cloudflare",
+    "deploy-staging": "wrangler publish --env staging",
+    "deploy-prod": "wrangler publish --env prod",
+    "deploy-all": "yarn deploy-staging && yarn deploy-prod"
+  },
+  "author": "Arunesh <hello@arunesh.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^1.0.6",
+    "@types/whatwg-url": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1",
+    "ts-loader": "^6.2.1",
+    "types-cloudflare-worker": "^1.1.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5"
+  },
+  "dependencies": {
+    "whatwg-url": "^8.0.0"
+  }
+}
