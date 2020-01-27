@@ -22,7 +22,7 @@ const scheduleBatch = async () => {
   batchScheduled = true
 
   if (batchedLogs.length <= 100) {
-    await sleep(Number(process.env.BATCH_INTERVAL) || 500)
+    await sleep(Number(process.env.BATCH_INTERVAL) || 1000)
   }
 
   if (batchedLogs.length === 0) {
